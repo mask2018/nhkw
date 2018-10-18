@@ -1,12 +1,12 @@
 <template>
-  <div class="UiDesign">
+  <div class="Course">
     <h3 class="comIndexTitle">
-      <strong>UI设计</strong>
+      <strong>海外教程</strong>
       <span @click="changeBatch()" v-if="newVideoShow" class="comChange"><i></i>换一批</span>
       <a href="javascript:;">更多</a>
     </h3>
-    <div class="uiCen">
-      <div class="uiMore comPaMore">
+    <div class="courseCen">
+      <div class="courseMore comPaMore">
         <div class="spare">
           <span class="sp1"></span>
           <span class="sp2"></span>
@@ -16,7 +16,7 @@
           <span class="sp6"></span>
         </div>
         <a :href="method" class="comPaConnect">
-          <strong>UI设计</strong>
+          <strong>海外教程</strong>
           <span>共有{{numFontVideo}}节课</span>
         </a>
       </div>
@@ -36,63 +36,63 @@
 </template>
 
 <script>
-import axios from 'axios'
-export default {
-  name: 'UiDesign',
-  data () {
-    return {
-      numFontVideo: 0,
-      videoSlide: [],
-      numCount: 0,
-      showNum: 4,
-      newVideoShow: true,
-      method: 'http://www.aisoubai.com/'
-    }
-  },
-  components: {
-  },
-  created () {
-    var _this = this
-    axios.get('/static/json/uiDesign.json')
-      .then(function (response) {
-        for (let i = 0; i < _this.showNum; i++) {
-          _this.$set(_this.videoSlide, i, response.data.videoSlide[i])
-        }
-        _this.numFontVideo = response.data.videoSlide.length
-      }).catch(function (error) {
-        console.log(error)
-      })
-  },
-  mounted () {
-  },
-  methods: {
-    changeBatch () {
-      this.numCount++
-      var that = this
-      axios.get('/static/json/uiDesign.json')
-        .then(function (res) {
-          var num = Math.floor(res.data.videoSlide.length / that.showNum) - 1
-          for (var i = 0; i < res.data.videoSlide.length; i++) {
-            that.$set(that.videoSlide, i, res.data.videoSlide[i + that.showNum * that.numCount])
+  import axios from 'axios'
+  export default {
+    name: 'Course',
+    data () {
+      return {
+        numFontVideo: 0,
+        videoSlide: [],
+        numCount: 0,
+        showNum: 4,
+        newVideoShow: true,
+        method: 'http://www.aisoubai.com/'
+      }
+    },
+    components: {
+    },
+    created () {
+      var _this = this
+      axios.get('/static/json/courseC4D.json')
+        .then(function (response) {
+          for (let i = 0; i < _this.showNum; i++) {
+            _this.$set(_this.videoSlide, i, response.data.videoSlide[i])
           }
-          if (that.numCount === num) {
-            that.newVideoShow = false
-          }
+          _this.numFontVideo = response.data.videoSlide.length
         }).catch(function (error) {
           console.log(error)
         })
+    },
+    mounted () {
+    },
+    methods: {
+      changeBatch () {
+        this.numCount++
+        var that = this
+        axios.get('/static/json/courseC4D.json')
+          .then(function (res) {
+            var num = Math.floor(res.data.videoSlide.length / that.showNum) - 1
+            for (var i = 0; i < num; i++) {
+              that.$set(that.videoSlide, i, res.data.videoSlide[i + that.showNum * that.numCount])
+            }
+            if (that.numCount === num) {
+              that.newVideoShow = false
+            }
+          }).catch(function (error) {
+            console.log(error)
+          })
+      }
     }
   }
-}
 </script>
 
 <style scoped lang="less">
-.uiCen{
+.courseCen{
   position: relative;
   overflow: hidden;
-  .uiMore{
+  .courseMore{
     .spare{
-      background-color: #eb4c8c;
+      background-color: #fbb03b;
     }
   }
   .indexList{

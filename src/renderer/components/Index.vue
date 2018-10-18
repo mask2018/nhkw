@@ -1,89 +1,132 @@
 <template>
   <div class="Index">
-    <h3 class="comIndexTitle"><strong>最新视频</strong><span @click="changeBatch()">换一批</span><a href="javascript:;">更多</a></h3>
-    <div class="indexList newVideo">
-      <ul class="clearfix">
-        <li v-for="(data,index) in videoSlide" :key='data.id' v-if='index<=6' :value="data.numTyp">
-          <span class="comLabel" :class="data.bgColor" v-if="data.label">{{data.label}}</span>
-          <span class="comTime" v-if="data.time">{{data.time}}</span>
-          <a :href="data.method" class="indexListImg"><img v-bind:src="data.src"/></a>
-          <a :href="data.method" class="indexListTitle">{{data.title}}</a>
-          <p class="indexListDetail clearfix"><span class="fl">{{data.label}}</span><span class="fr"><i>{{data.number}}</i>人已学</span></p>
-        </li>
-      </ul>
-    </div>
     <RecVideo></RecVideo>
+    <NewVideo></NewVideo>
     <SoftVideo></SoftVideo>
-    <FontUi></FontUi>
-    <CourseC4D></CourseC4D>
+    <Photography></Photography>
     <UiDesign></UiDesign>
-    <ChoiceVideo></ChoiceVideo>
+    <Course></Course>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
+import NewVideo from './index/NewVideo'
 import RecVideo from './index/RecVideo'
-import ChoiceVideo from './index/ChoiceVideo'
 import SoftVideo from './index/SoftVideo'
-import FontUi from './index/FontUi'
+import Photography from './index/Photography'
 import UiDesign from './index/UiDesign'
-import CourseC4D from './index/CourseC4D'
+import Course from './index/Course'
 export default {
   name: 'Index',
   data () {
     return {
-      videoSlide: [],
-      numTyp: 1
     }
   },
   components: {
+    NewVideo,
     RecVideo,
-    ChoiceVideo,
     SoftVideo,
-    FontUi,
-    CourseC4D,
+    Photography,
+    Course,
     UiDesign
   },
   created () {
-    var _this = this
-    axios.get('/static/json/newVideo.json?type=numTyp')
-      .then(function (response) {
-        _this.videoSlide = response.data.videoSlide
-      }).catch(function (error) {
-        console.log(error)
-      })
   },
   mounted () {
   },
   methods: {
-    changeBatch () {
-      axios.get('/static/json/newVideo.json')
-        .then(function (res) {
-          console.log(2)
-          var _this = this
-          console.log(res.data.videoSlide.length)
-          _this.videoSlide = res.data.videoSlide
-        }).catch(function (error) {
-          console.log(error)
-        })
-    }
   }
 }
 </script>
 
 <style lang="less">
-.bgColor1{ background-color: #EA5441;}
-.bgColor2{ background-color: #494166;}
-.bgColor3{ background-color: #6DBD6B;}
-.bgColor4{ background-color: #FBB03B;}
-.bgColor5{}
-.bgColor6{}
+.bgColor1{ background-color: #b062a3;} // 精修
+.bgColor2{ background-color: #494166;} // 摄影
+.bgColor3{ background-color: #74c4c4;} // 室内
+.bgColor4{ background-color: #ea5541;} // 插画
+.bgColor5{ background-color: #eb4c8c;} // ui设计
+.bgColor6{ background-color: #F5C607;} // 字体
+.bgColor7{ background-color: #fbb03b;} // 海外
+.bgColor8{ background-color: #FF7C00;} // 软件
+.bgColor9{ background-color: #6EBD6B;} // 综合
+.bgColor10{ background-color: #40B0FF;} // 海报
+.bgColor11{ background-color: #00a2b9;} // 品牌
+.bgColor12{ background-color: #00528E;} // 职业
+.bgColor13{ background-color: #367DD5;} // C4D
+.bgColor14{ background-color: #00A99D;} // 合成
+.bgColor15{ background-color: #7e57c2;} // 办公
+.bgColor16{ background-color: #d49688;} // 影视
+.bgColor17{ background-color: #ccb374;} // 人像
+.bgColor18{ background-color: #617f74;} // 店铺
 .comIndexTitle{
-  position: relative; padding: 20px 0 12px; margin-left: 5px; color: #fff;
+  position: relative; padding: 20px 0 12px; height: 18px; margin-left: 5px; color: #fff;
   span{ margin-left: 20px; font-size: 12px; color: #D8D8D8; cursor: pointer;}
+  .comChange{
+    i{
+      display: inline-block;
+      position: relative; width: 16px; height: 16px; margin-right: 5px; margin-top: -2px;
+      border-radius: 50%; border-width: 2px; border-style: solid;
+      color: #D8D8D8; opacity: 0.6; box-sizing: border-box; vertical-align: middle;
+    }
+    i:before{
+      content: '';
+      position: absolute; right: -7px; top: 0;
+      width: 0; height: 0; border-width: 4px; border-style: solid;
+      border-right-color: transparent; border-left-color: transparent; border-bottom-color: transparent;
+      -webkit-transform: rotate(-53deg); transform: rotate(-53deg); z-index: 3; pointer-events: none;
+    }
+    i:after{
+      content: '';
+      position: absolute; right: -2px; top: 2px; width: 6px; height: 6px;
+      background-color: #1E1D1B; pointer-events: none;
+    }
+  }
+  .comChange:hover,a:hover,.comChange:hover i{ color: #FFD200; opacity: 1;}
   a{
     position: absolute; right: 0; top: 20px; font-size: 12px; color: #fff;
+  }
+}
+.comPaMore{
+  position: absolute; left: 0; top: 5px;
+  width: 188px; height: 176px; overflow: hidden; border-radius: 5px;
+  .spare{
+    height: 100%;
+    position: relative;
+    transition: opacity .2s;
+    .sp1{
+      position: absolute; left: 10px; top: -25px; width: 120px; height: 20px;
+      border-radius: 10px; background: rgba(255,255,255,.25);
+      -webkit-transform: rotate(-45deg); transform: rotate(-45deg);
+    }
+    .sp2{
+      position: absolute; left: 140px; top: -10px; width: 100px; height: 40px;
+      border-radius: 20px; background: rgba(0,0,0,.05);
+      -webkit-transform: rotate(-45deg); transform: rotate(-45deg);
+    }
+    .sp3{
+      position: absolute; left: 146px; top: 16px; width: 100px; height: 40px;
+      border-radius: 20px; background: rgba(255,255,255,.25);
+      -webkit-transform: rotate(-45deg); transform: rotate(-45deg);
+    }
+    .sp4{
+      position: absolute; left: -66px; top: 180px; width: 120px; height: 20px;
+      border-radius: 10px; background: rgba(0,0,0,.05);
+      -webkit-transform: rotate(-45deg); transform: rotate(-45deg);
+    }
+    .sp5{
+      position: absolute; right: -70px; bottom: -98px; width: 150px; height: 150px;
+      border-radius: 50%; background: rgba(255,255,255,.25);
+    }
+    .sp6{
+      position: absolute; left: -59px; top: -129px; width: 260px; height: 260px;
+      border-radius: 50%; background: linear-gradient(45deg,rgba(0,0,0,0),rgba(0,0,0,.5)); opacity: .1;
+    }
+  }
+  .comPaConnect{
+    position: absolute; left: 0; top: 0; width: 100%; height: 100%; color: #fff; text-align: center;
+    strong,span{display: block;}
+    strong{ padding: 50px 0 20px; font-size: 20px;}
+    span{ font-size: 18px;}
   }
 }
 .indexList{
@@ -108,7 +151,7 @@ export default {
       }
       .comLabel{
         position: absolute; right: 8px; top: 20px; width: 44px; height: 16px; line-height: 16px; text-align: center;
-        border-radius: 5px;
+        border-radius: 5px; font-size: 12px; color: #fff;
       }
       .comTime{
         position: absolute; right: 8px; top: 80px; padding: 4px 12px;

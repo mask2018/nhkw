@@ -117,7 +117,7 @@ export default {
                 position: relative; color: #fff;
                 i{
                   position: absolute; right: -40px; top: -20px; line-height: 23px; padding: 0 8px;
-                  font-size: 12px; border-radius: 20px;
+                  font-size: 12px; border-radius: 50px 50px 50px 0;
                 }
                 .hotStyle{ background-color: red; color: #fff;}
                 .newStyle{ background-color: cornflowerblue; color: #fff;}
@@ -126,12 +126,16 @@ export default {
                 color: #FFD200;
               }
               span{
-                 margin-left: 50px; padding: 0 10px; line-height: 30px; border: 1px solid #ddd; border-radius: 30px; font-size: 14px;
+                display: inline-block; margin-left: 50px; width: 51px; height: 24px; line-height: 24px; border: 1px solid #ddd; border-radius: 30px; font-size: 12px; text-align: center;
               }
               .endStyle{ background-color: #666; color: burlywood;}
               .ufdStyle{ background-color: #ddd; color: #333;}
             }
-            .softListDetail{}
+            .softListDetail{
+              span:nth-of-type(2){
+                margin: 0 10px;
+              }
+            }
           }
         }
       }

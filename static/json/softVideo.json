@@ -2,52 +2,58 @@
   "videoSlide":[
     {
       "method": "http://www.aisoubai.com/",
-      "src": "/static/images/loginIcon.png",
-      "title": "ps软件安装及介绍1",
-      "label": "初级练习",
-      "number": "11"
+      "src": "https://pic.huke88.com/image/000/000/000/BEA1A49E-BC50-852D-E18C-1969A1351170.png",
+      "title": "PhotoShop",
+      "label": "HOT",
+      "bgColor": "bgColor3",
+      "number": "32"
     }, {
       "method": "http://www.aisoubai.com/",
-      "src": "/static/images/loginIcon.png",
-      "title": "C4D软件入门2",
-      "label": "中级拔高",
-      "number": "150"
+      "src": "https://pic.huke88.com/image/000/000/000/C5BDCDC8-D3A1-1236-6DCD-26E778FD3C59.png",
+      "title": "Illustrator",
+      "label": "HOT",
+      "bgColor": "bgColor3",
+      "number": "29"
     }, {
       "method": "http://www.aisoubai.com/",
-      "src": "/static/images/loginIcon.png",
-      "title": "设计师应如何寻找素材3",
-      "label": "拔苗助长",
-      "number": "100"
+      "src": "https://pic.huke88.com/image/000/000/000/C622576D-9B51-AE26-0944-5E386C4DEDBB.png",
+      "title": "C4D",
+      "label": "HOT",
+      "bgColor": "bgColor3",
+      "number": "66"
     }, {
       "method": "http://www.aisoubai.com/",
-      "src": "/static/images/loginIcon.png",
-      "title": "UI设计进阶指南4",
-      "label": "新手入门",
-      "number": "9999"
+      "src": "https://pic.huke88.com/image/000/000/000/03992C48-E9D5-C4DE-E375-6FFE557C8124.png",
+      "title": "Final Cut ProX",
+      "label": "NEW",
+      "bgColor": "bgColor2",
+      "number": "15"
     }, {
       "method": "http://www.aisoubai.com/",
-      "src": "/static/images/loginIcon.png",
-      "title": "字体设计中的正负形5",
-      "label": "新手入门",
-      "number": "8665"
+      "src": "https://pic.huke88.com/image/000/000/000/8D018112-CB68-1A37-2202-EE9B5272C7B6.jpg",
+      "title": "Vegas Pro 14",
+      "label": "NEW",
+      "bgColor": "bgColor2",
+      "number": "51"
     }, {
       "method": "http://www.aisoubai.com/",
-      "src": "/static/images/loginIcon.png",
-      "title": "界面设计规范6",
-      "label": "拔苗助长",
-      "number": "6666"
+      "src": "https://pic.huke88.com/image/000/000/000/42CCF6B0-AD38-EEA2-0DBD-72EE3A8B7382.png",
+      "title": "EDIUS Pro 9",
+      "label": "NEW",
+      "bgColor": "bgColor2",
+      "number": "18"
     }, {
       "method": "http://www.aisoubai.com/",
-      "src": "/static/images/loginIcon.png",
-      "title": "饮品广告海报合成7",
-      "label": "初级练习",
-      "number": "12"
+      "src": "https://pic.huke88.com/image/000/000/000/C1CC8411-B7FB-6B9F-86FB-D2B4E4A8E062.png",
+      "title": "Principle",
+      "bgColor": "bgColor2",
+      "number": "17"
     }, {
       "method": "http://www.aisoubai.com/",
-      "src": "/static/images/loginIcon.png",
-      "title": "中秋与玉兔望月8",
-      "label": "中级拔高",
-      "number": "8"
+      "src": "https://pic.huke88.com/image/000/000/000/9E0DD2C4-A336-CDF0-A9A8-0D47F191BA6B.png",
+      "title": "Pro/Engineer",
+      "bgColor": "bgColor2",
+      "number": "93"
     }
   ]
 }

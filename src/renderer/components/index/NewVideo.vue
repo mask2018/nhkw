@@ -1,7 +1,7 @@
 <template>
-  <div class="RecVideo">
+  <div class="NewVideo">
     <h3 class="comIndexTitle">
-      <strong>推荐视频</strong>
+      <strong>最新视频</strong>
       <span @click="changeBatch()" v-if="newVideoShow" class="comChange"><i></i>换一批</span>
       <a href="javascript:;">更多</a>
     </h3>
@@ -22,7 +22,7 @@
 <script>
 import axios from 'axios'
 export default {
-  name: 'Index',
+  name: 'NewVideo',
   data () {
     return {
       videoSlide: [],
@@ -36,7 +36,7 @@ export default {
   },
   created () {
     var _this = this
-    axios.get('/static/json/recVideo.json')
+    axios.get('/static/json/newVideo.json')
       .then(function (response) {
         for (let i = 0; i < _this.showNum; i++) {
           _this.$set(_this.videoSlide, i, response.data.videoSlide[i])
@@ -51,7 +51,7 @@ export default {
     changeBatch () {
       this.numCount++
       var that = this
-      axios.get('/static/json/recVideo.json')
+      axios.get('/static/json/newVideo.json')
         .then(function (res) {
           var num = Math.floor(res.data.videoSlide.length / that.showNum) - 1
           for (var i = 0; i < res.data.videoSlide.length; i++) {

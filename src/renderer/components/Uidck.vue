@@ -23,8 +23,8 @@
             </a>
             <a :href="data.method" class="uiDckListTitle">{{data.title}}</a>
             <p class="uiDckListDetail">
-              <span class="fl">初学者</span>
-              <span class="fr">333万人已学</span>
+              <span class="fl">{{data.label}}</span>
+              <span class="fr">{{data.number}}人已学</span>
             </p>
           </div>
         </li>
@@ -64,15 +64,28 @@ export default {
       item.filter(function (v, i) {
         if (i === key) {
           v.active = true
-          console.log(item[i].name)
           if (item[i].identity > 1) {
-            that.condition.filter(function (v2, q) {
-              if (v.name === v2.name) {
-                that.condition.splice(q, 1)
+            if (item[i].name === '全部') {
+              that.condition.filter(function (v2, q) {
+                if (v.identity === v2.identity) {
+                  that.condition.splice(q, 1)
+                }
+              })
+            } else {
+              that.condition.filter(function (v2, q) {
+                if (v.name === v2.name) {
+                  that.condition.splice(q, 1)
+                }
+              })
+              if (that.condition.length > 0) {
+                for (var b = 0; b < that.condition.length; b++) {
+                  if (that.condition[b].identity === index) {
+                    that.condition.splice(b, 1)
+                  }
+                }
               }
-            })
-            console.log(that.condition)
-            that.condition.push({name: item[i].name, identity: item[i].identity})
+              that.condition.push({name: item[i].name, identity: item[i].identity})
+            }
           }
         } else {
           v.active = false
@@ -81,6 +94,19 @@ export default {
     },
     delFn (index) {
       var that = this
+      var item = that.condition
+      var items = that.category
+      items.filter(function (v, i) {
+        var items1 = items[i].items
+        items1.filter(function (v1, i1) {
+          if (items1[i1].identity === item[index].identity) {
+            items1[i1].active = false
+            if (items1[i1].name === '全部') {
+              items1[i1].active = true
+            }
+          }
+        })
+      })
       that.condition.splice(index, 1)
     },
     select: function (index, i, j) {

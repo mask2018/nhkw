@@ -118,7 +118,7 @@
       "items": [
         {
           "name": "全部",
-          "identity": 0,
+          "identity": 2,
           "active": true
         },
         {
@@ -238,7 +238,7 @@
       "items": [
         {
           "name": "全部",
-          "identity": 0,
+          "identity": 3,
           "active": true
         },
         {
@@ -303,7 +303,7 @@
       "items": [
         {
           "name": "全部",
-          "identity": 0,
+          "identity": 4,
           "active": true
         },
         {
@@ -378,7 +378,7 @@
       "items": [
         {
           "name": "全部",
-          "identity": 0,
+          "identity": 5,
           "active": true
         },
         {

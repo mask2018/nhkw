@@ -1,12 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Login from '@/components/login/Login'
+import Register from '@/components/login/Register'
+import PhoneLogin from '@/components/login/PhoneLogin'
+import PhoneRegister from '@/components/login/PhoneRegister'
 import All from '@/components/All'
 import Index from '@/components/Index'
+import NewVideo from '@/components/index/NewVideo'
 import RecVideo from '@/components/index/RecVideo'
 import ChoiceVideo from '@/components/index/ChoiceVideo'
 import SoftVideo from '@/components/index/SoftVideo'
-import FontUi from '@/components/index/FontUi'
-import CourseC4D from '@/components/index/CourseC4D'
+import Photography from '@/components/index/Photography'
+import Course from '@/components/index/Course'
 import UiDesign from '@/components/index/UiDesign'
 import Soft from '@/components/Soft'
 import Uidck from '@/components/Uidck'
@@ -21,9 +26,34 @@ export default new Router({
       component: All
     },
     {
+      path: '/components/login/Register',
+      name: 'Register',
+      component: Register
+    },
+    {
+      path: '/components/login/Login',
+      name: 'Login',
+      component: Login
+    },
+    {
+      path: '/components/login/PhoneLogin',
+      name: 'PhoneLogin',
+      component: PhoneLogin
+    },
+    {
+      path: '/components/login/PhoneRegister',
+      name: 'PhoneRegister',
+      component: PhoneRegister
+    },
+    {
       path: '/components/Index',
       name: 'Index',
       component: Index
+    },
+    {
+      path: '/components/index/NewVideo',
+      name: 'NewVideo',
+      component: NewVideo
     },
     {
       path: '/components/index/RecVideo',
@@ -41,9 +71,9 @@ export default new Router({
       component: SoftVideo
     },
     {
-      path: '/components/index/FontUi',
-      name: 'FontUi',
-      component: FontUi
+      path: '/components/index/Photography',
+      name: 'Photography',
+      component: Photography
     },
     {
       path: '/components/index/UiDesign',
@@ -51,9 +81,9 @@ export default new Router({
       component: UiDesign
     },
     {
-      path: '/components/index/CourseC4D',
-      name: 'CourseC4D',
-      component: CourseC4D
+      path: '/components/index/Course',
+      name: 'Course',
+      component: Course
     },
     {
       path: '/components/Soft',
