@@ -70,7 +70,7 @@ export default {
         params: { id: soId },
         query: { recId: soId, name: 'one' }
       })
-      window.open(routeData.href, '_play')
+      window.open(routeData.href, '_play').focus()
     }
   },
   update () {}

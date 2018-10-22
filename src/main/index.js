@@ -26,9 +26,29 @@ function createWindow () {
     useContentSize: true,
     width: 1300,
     webPreferences: {
-      webSecurity: false
+      webSecurity: false,
+      nativeWindowOpen: true
     },
     frame: false
+  })
+  mainWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures) => {
+    if (frameName === 'modal') {
+      event.preventDefault()
+      Object.assign(options, {
+        modal: true,
+        parent: mainWindow,
+        width: 100,
+        height: 100
+      })
+      event.newGuest = new BrowserWindow(options)
+    }
+  })
+
+  mainWindow.on('maximize', (e) => {
+    mainWindow.webContents.send('resizeWin', 'max')
+  })
+  mainWindow.on('unmaximize', (e) => {
+    mainWindow.webContents.send('resizeWin', 'unmax')
   })
 
   mainWindow.loadURL(winURL)

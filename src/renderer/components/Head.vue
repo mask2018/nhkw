@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="headClose">
-      <span class="small" @click="headSmall()">_</span>
+      <span class="small icon-suoxiao" @click="headSmall()"></span>
       <span class="min icon-huanyuan" @click="headMin()" v-if="minIcon"></span>
       <span class="max icon-fangda" @click="headMax()" v-if="maxIcon"></span>
       <span class="close icon-dacha" @click="headClose()"></span>
@@ -54,11 +54,23 @@ export default {
     headClose: function () {
       ipcRenderer.send('newClose', 'close')
     }
+  },
+  mounted () {
+    var that = this
+    ipcRenderer.on('resizeWin', function (event, arg) {
+      if (arg === 'max') {
+        that.maxIcon = false
+        that.minIcon = true
+      } else {
+        that.maxIcon = true
+        that.minIcon = false
+      }
+    })
   }
 }
 </script>
 <style>
-  @import "//at.alicdn.com/t/font_880923_ykuzhaavd6.css";
+  @import "//at.alicdn.com/t/font_880923_sgz6ay252me.css";
 </style>
 <style lang="less" scoped>
 .head{
