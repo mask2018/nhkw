@@ -2,6 +2,8 @@
 
 import { app, BrowserWindow } from 'electron'
 
+const ipc = require('electron').ipcMain
+
 /**
  * Set `__static` path to static files in production
  * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-static-assets.html
@@ -20,9 +22,13 @@ function createWindow () {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
-    height: 563,
+    height: 883,
     useContentSize: true,
-    width: 1000
+    width: 1300,
+    webPreferences: {
+      webSecurity: false
+    },
+    frame: false
   })
 
   mainWindow.loadURL(winURL)
@@ -65,3 +71,18 @@ app.on('ready', () => {
   if (process.env.NODE_ENV === 'production') autoUpdater.checkForUpdates()
 })
  */
+
+ipc.on('newClose', function (event, arg) {
+  if (arg === 'close') {
+    mainWindow.close()
+  }
+  if (arg === 'big') {
+    mainWindow.maximize()
+  }
+  if (arg === 'nobig') {
+    mainWindow.unmaximize()
+  }
+  if (arg === 'small') {
+    mainWindow.minimize()
+  }
+})

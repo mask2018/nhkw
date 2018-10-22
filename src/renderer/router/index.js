@@ -4,8 +4,11 @@ import Login from '@/components/login/Login'
 import Register from '@/components/login/Register'
 import PhoneLogin from '@/components/login/PhoneLogin'
 import PhoneRegister from '@/components/login/PhoneRegister'
+import ChildIndex from '@/components/child/ChildIndex'
 import All from '@/components/All'
+import Load from '@/components/Load'
 import Index from '@/components/Index'
+import Head from '@/components/Head'
 import NewVideo from '@/components/index/NewVideo'
 import RecVideo from '@/components/index/RecVideo'
 import ChoiceVideo from '@/components/index/ChoiceVideo'
@@ -36,6 +39,11 @@ export default new Router({
       component: Login
     },
     {
+      path: '/components/All',
+      name: 'All',
+      component: All
+    },
+    {
       path: '/components/login/PhoneLogin',
       name: 'PhoneLogin',
       component: PhoneLogin
@@ -46,9 +54,24 @@ export default new Router({
       component: PhoneRegister
     },
     {
+      path: '/components/child/ChildIndex/:id/',
+      name: 'ChildIndex',
+      component: ChildIndex
+    },
+    {
       path: '/components/Index',
       name: 'Index',
       component: Index
+    },
+    {
+      path: '/components/Head',
+      name: 'Head',
+      component: Head
+    },
+    {
+      path: '/components/Load',
+      name: 'Load',
+      component: Load
     },
     {
       path: '/components/index/NewVideo',

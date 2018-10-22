@@ -1,13 +1,30 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <Head :hdstate="hdstate" id="dragCircle"></Head>
+    <router-view @comHead="comAll"></router-view>
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'hkw'
+import Head from '@/components/Head'
+export default {
+  name: 'hkw',
+  data () {
+    return {
+      hdstate: true
+    }
+  },
+  components: {
+    Head
+  },
+  methods: {
+    comAll: function (bool) {
+      this.hdstate = bool
+    }
+  },
+  mounted () {
   }
+}
 </script>
 
 <style>

@@ -3,7 +3,7 @@
     <h3 class="comIndexTitle">
       <strong>摄影艺术</strong>
       <span @click="changeBatch()" v-if="newVideoShow" class="comChange"><i></i>换一批</span>
-      <a href="javascript:;">更多</a>
+      <a href="javascript:;" target="_blank">更多</a>
     </h3>
     <div class="ptgUicen">
       <div class="ptgMore comPaMore">

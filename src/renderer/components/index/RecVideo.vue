@@ -3,15 +3,15 @@
     <h3 class="comIndexTitle">
       <strong>推荐视频</strong>
       <span @click="changeBatch()" v-if="newVideoShow" class="comChange"><i></i>换一批</span>
-      <a href="javascript:;">更多</a>
+      <a href="javascript:;" target="_play">更多</a>
     </h3>
     <div class="indexList newVideo">
       <ul class="clearfix">
         <li v-for="(data,index) in videoSlide" :key='data.id' v-if="index<showNum">
           <span class="comLabel" :class="data.bgColor" v-if="data.label">{{data.label}}</span>
           <span class="comTime" v-if="data.time">{{data.time}}</span>
-          <a :href="data.method" class="indexListImg"><img v-bind:src="data.src"/></a>
-          <a :href="data.method" class="indexListTitle">{{data.title}}</a>
+          <a href="javascript:;" @click="linkAll(data.soId)" class="indexListImg" target="_play"><img v-bind:src="data.src"/></a>
+          <a href="javascript:;" @click="linkAll(data.soId)" class="indexListTitle" target="_play">{{data.title}}</a>
           <p class="indexListDetail clearfix"><span class="fl">{{data.grade}}</span><span class="fr"><i>{{data.number}}</i>人已学</span></p>
         </li>
       </ul>
@@ -63,8 +63,17 @@ export default {
         }).catch(function (error) {
           console.log(error)
         })
+    },
+    linkAll (soId) {
+      let routeData = this.$router.resolve({
+        name: 'ChildIndex',
+        params: { id: soId },
+        query: { recId: soId, name: 'one' }
+      })
+      window.open(routeData.href, '_play')
     }
-  }
+  },
+  update () {}
 }
 </script>
 
